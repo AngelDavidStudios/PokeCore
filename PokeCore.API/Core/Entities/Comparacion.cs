@@ -3,6 +3,7 @@ using Supabase.Postgrest.Models;
 
 namespace PokeCore.API.Core.Entities;
 
+[Table("comparaciones")]
 public class Comparacion : BaseModel
 {
     [PrimaryKey("id", false)]
