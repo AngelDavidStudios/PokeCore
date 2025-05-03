@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using PokeCore.API.Core.DTOs;
+using PokeCore.API.Core.Entities;
 using PokeCore.API.Core.Services;
 
 namespace PokeCore.API.Api.Controllers;

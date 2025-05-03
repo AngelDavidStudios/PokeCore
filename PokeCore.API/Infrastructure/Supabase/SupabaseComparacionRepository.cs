@@ -1,5 +1,6 @@
 using PokeCore.API.Core.Entities;
 using Supabase;
+using Client = Supabase.Client;
 
 namespace PokeCore.API.Infrastructure.Supabase;
 
