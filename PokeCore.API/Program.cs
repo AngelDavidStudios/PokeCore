@@ -63,8 +63,8 @@ builder.Services.AddScoped<IAuthService, SupabaseAuthService>();
 builder.Services.AddScoped<IPokeApiService, PokeApiService>();
 builder.Services.AddScoped<ComparadorPokemonService>();
 builder.Services.AddScoped<SupabaseComparacionRepository>();
-
-
+builder.Services.AddScoped<IValidacionService, ValidacionEquipoService>();
+builder.Services.AddScoped<SupabaseValidacionRepository>();
 
 var app = builder.Build();
 
