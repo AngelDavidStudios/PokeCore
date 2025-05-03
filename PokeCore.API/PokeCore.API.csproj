@@ -18,7 +18,6 @@
 
     <ItemGroup>
       <Folder Include="Api\Configurations\" />
-      <Folder Include="Api\Middlewares\" />
       <Folder Include="Auth\Models\" />
       <Folder Include="Core\DTOs\" />
       <Folder Include="Core\Entities\" />

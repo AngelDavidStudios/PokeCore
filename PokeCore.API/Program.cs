@@ -1,6 +1,7 @@
 using System.Text;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using PokeCore.API.Api.Middlewares;
 using PokeCore.API.Auth.Interfaces;
 using PokeCore.API.Auth.Services;
 
@@ -70,7 +71,8 @@ app.UseCors(static builder =>
     builder.AllowAnyMethod()
         .AllowAnyHeader()
         .AllowAnyOrigin());
-app.UseAuthorization();
 app.UseAuthentication();
+app.UseMiddleware<SupabaseTokenMiddleware>();
+app.UseAuthorization();
 app.MapControllers();
 app.Run();
