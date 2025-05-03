@@ -49,8 +49,10 @@ builder.Services.AddAuthentication().AddJwtBearer(options =>
     {
         ValidateIssuerSigningKey = true,
         IssuerSigningKey = new SymmetricSecurityKey(bytes),
-        ValidAudience = builder.Configuration["Authentication:ValidAudience"],
-        ValidIssuer = builder.Configuration["Authentication:ValidIssuer"],
+        // ValidAudience = builder.Configuration["Authentication:ValidAudience"],
+        // ValidIssuer = builder.Configuration["Authentication:ValidIssuer"],
+        ValidateIssuer = false,
+        ValidateAudience = false,
     };
 });
 builder.Services.AddControllers();

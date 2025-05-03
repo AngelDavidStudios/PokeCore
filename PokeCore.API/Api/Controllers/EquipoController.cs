@@ -1,6 +1,8 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using PokeCore.API.Core.DTOs;
 using PokeCore.API.Core.Interfaces;
+using PokeCore.API.Infrastructure.Extensions;
 
 namespace PokeCore.API.Api.Controllers;
 
@@ -16,17 +18,19 @@ public class EquipoController : ControllerBase
     }
     
     [HttpPost("validar")]
+    [Authorize]
     public async Task<ActionResult<ValidacionEquipoResponse>> Validar([FromBody] ValidacionEquipoRequest request)
     {
         if (request.Nombres == null || request.Nombres.Count == 0 || request.Nombres.Count > 6)
             return BadRequest("Debes enviar entre 1 y 6 Pokémon.");
-
-        // ⚠️ Temporalmente el ID del usuario está quemado
-        var usuarioId = new Guid("00000000-0000-0000-0000-000000000001");
+        
+        var usuarioId = HttpContext.User.ObtenerUsuarioId();
+        if (usuarioId is null)
+            return Unauthorized("No se pudo extraer el usuario del token.");
 
         try
         {
-            var resultado = await _validacionService.ValidarEquipoAsync(request, usuarioId);
+            var resultado = await _validacionService.ValidarEquipoAsync(request, usuarioId.Value);
             return Ok(resultado);
         }
         catch (Exception ex)
