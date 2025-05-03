@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using PokeCore.API.Api.Controllers.Others;
 using PokeCore.API.Auth.Interfaces;
@@ -28,4 +29,18 @@ public class AuthController: ControllerBase
         var token = await _authService.LoginAsync(req.Email, req.Password);
         return Ok(new { token });
     }
+    
+    [HttpPost("logout")]
+    [Authorize]
+    public async Task<IActionResult> Logout()
+    {
+        var token = HttpContext.Request.Headers["Authorization"].FirstOrDefault()?.Replace("Bearer ", "");
+
+        if (string.IsNullOrWhiteSpace(token))
+            return BadRequest("No se proporcionó el token de autenticación.");
+
+        var result = await _authService.LogoutAsync(token);
+        return result ? Ok("Sesión cerrada con éxito.") : StatusCode(500, "Error al cerrar sesión.");
+    }
+
 }

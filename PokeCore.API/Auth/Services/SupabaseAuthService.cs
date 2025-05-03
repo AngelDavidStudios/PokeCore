@@ -36,4 +36,17 @@ public class SupabaseAuthService : IAuthService
         var user = await _client.Auth.GetUser(token);
         return user != null;
     }
+    
+    public async Task<bool> LogoutAsync(string accessToken)
+    {
+        try
+        {
+            await _client.Auth.SignOut();
+            return true;
+        }
+        catch
+        {
+            return false;
+        }
+    }
 }
