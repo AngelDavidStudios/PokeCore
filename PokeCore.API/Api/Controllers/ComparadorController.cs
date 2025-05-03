@@ -17,14 +17,16 @@ public class ComparadorController : ControllerBase
     
     [HttpPost]
     [Route("comparar")]
-    public async Task<ActionResult<ComparacionResponse>> Comparar([FromBody] ComparacionRequest request)
+    public async Task<ActionResult<ComparacionResponse>> Comparar([FromBody] ComparacionRequest req)
     {
-        if (string.IsNullOrWhiteSpace(request.PokemonA) || string.IsNullOrWhiteSpace(request.PokemonB))
+        var usuarioId = new Guid("YOUR-USER-ID"); // ⚠️ Temporal
+        
+        if (string.IsNullOrWhiteSpace(req.PokemonA) || string.IsNullOrWhiteSpace(req.PokemonB))
             return BadRequest("Debe proporcionar dos Pokémon.");
 
         try
         {
-            var result = await _comparador.CompararAsync(request.PokemonA, request.PokemonB);
+            var result = await _comparador.CompararAsync(req.PokemonA, req.PokemonB, usuarioId);
             return Ok(result);
         }
         catch (Exception ex)

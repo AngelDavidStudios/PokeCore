@@ -7,6 +7,7 @@ using PokeCore.API.Auth.Services;
 using PokeCore.API.Core.Interfaces;
 using PokeCore.API.Core.Services;
 using PokeCore.API.Infrastructure.ExternalApis;
+using PokeCore.API.Infrastructure.Supabase;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -61,6 +62,8 @@ builder.Services.AddCors();
 builder.Services.AddScoped<IAuthService, SupabaseAuthService>();
 builder.Services.AddScoped<IPokeApiService, PokeApiService>();
 builder.Services.AddScoped<ComparadorPokemonService>();
+builder.Services.AddScoped<SupabaseComparacionRepository>();
+
 
 
 var app = builder.Build();

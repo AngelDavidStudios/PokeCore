@@ -19,9 +19,7 @@
     <ItemGroup>
       <Folder Include="Api\Configurations\" />
       <Folder Include="Auth\Models\" />
-      <Folder Include="Core\Entities\" />
       <Folder Include="Infrastructure\Persistence\" />
-      <Folder Include="Infrastructure\Supabase\" />
     </ItemGroup>
 
 </Project>
