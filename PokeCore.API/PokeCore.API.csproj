@@ -4,11 +4,29 @@
         <TargetFramework>net8.0</TargetFramework>
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
+        <UserSecretsId>79900a50-594f-4449-8bb0-d81631f824e4</UserSecretsId>
     </PropertyGroup>
 
     <ItemGroup>
+        <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.15" />
         <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="8.0.11"/>
+        <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+        <PackageReference Include="RestSharp" Version="112.1.0" />
+        <PackageReference Include="Supabase" Version="1.1.1" />
         <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2"/>
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Api\Configurations\" />
+      <Folder Include="Api\Middlewares\" />
+      <Folder Include="Auth\Models\" />
+      <Folder Include="Core\DTOs\" />
+      <Folder Include="Core\Entities\" />
+      <Folder Include="Core\Interfaces\" />
+      <Folder Include="Core\Services\" />
+      <Folder Include="Infrastructure\ExternalApis\" />
+      <Folder Include="Infrastructure\Persistence\" />
+      <Folder Include="Infrastructure\Supabase\" />
     </ItemGroup>
 
 </Project>
