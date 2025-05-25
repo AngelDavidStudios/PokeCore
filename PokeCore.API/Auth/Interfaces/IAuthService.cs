@@ -6,5 +6,4 @@ public interface IAuthService
     Task<string> LoginAsync(string email, string password);
     Task<bool> ValidateTokenAsync(string token);
     Task<bool> LogoutAsync(string accessToken);
-
 }
