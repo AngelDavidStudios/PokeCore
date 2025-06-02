@@ -5,9 +5,15 @@
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
         <UserSecretsId>79900a50-594f-4449-8bb0-d81631f824e4</UserSecretsId>
+        <AWSProjectType>Lambda</AWSProjectType>
     </PropertyGroup>
 
     <ItemGroup>
+        <PackageReference Include="Amazon.Lambda.AspNetCoreServer" Version="9.1.1" />
+        <PackageReference Include="Amazon.Lambda.AspNetCoreServer.Hosting" Version="1.8.1" />
+        <PackageReference Include="AWSSDK.Extensions.NETCore.Setup" Version="4.0.1" />
+        <PackageReference Include="AWSSDK.SSO" Version="4.0.0.4" />
+        <PackageReference Include="AWSSDK.SSOOIDC" Version="4.0.0.4" />
         <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.15" />
         <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="8.0.11"/>
         <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />

@@ -57,8 +57,12 @@ builder.Services.AddAuthentication().AddJwtBearer(options =>
 });
 builder.Services.AddControllers();
 builder.Services.AddCors();
+builder.Services.AddAWSLambdaHosting(LambdaEventSource.HttpApi);
 
 // Services
+var awsOptions = builder.Configuration.GetAWSOptions();
+awsOptions.Profile = "AdminAccess";
+builder.Services.AddDefaultAWSOptions(awsOptions);
 
 // Repositories
 builder.Services.AddScoped<IAuthService, SupabaseAuthService>();
