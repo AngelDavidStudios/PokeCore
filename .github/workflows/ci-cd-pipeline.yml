@@ -122,7 +122,7 @@ jobs:
       - name: Configure credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
-          role-to-assume: arn:aws:iam::462977977700:role/ci-cd-pipeline-Role-q68414RG0K5v
+          role-to-assume: arn:aws:iam::462977977700:role/poke-core-userpipeline
           aws-region: ${{env.AWS_REGION}}
 
       - name: Login to ECR repo
