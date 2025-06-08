@@ -6,6 +6,7 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <UserSecretsId>79900a50-594f-4449-8bb0-d81631f824e4</UserSecretsId>
         <AWSProjectType>Lambda</AWSProjectType>
+        <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
     </PropertyGroup>
 
     <ItemGroup>
@@ -25,6 +26,12 @@
     <ItemGroup>
       <Folder Include="Api\Configurations\" />
       <Folder Include="Auth\Models\" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Content Include="..\.dockerignore">
+        <Link>.dockerignore</Link>
+      </Content>
     </ItemGroup>
 
 </Project>
