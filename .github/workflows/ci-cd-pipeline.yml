@@ -163,4 +163,4 @@ jobs:
               else
                   echo "Container does not exist. No action taken."
               fi
-              sudo docker run -d --name $CONTAINER_NAME -p 8080:8080 -e ASPNETCORE_ENVIRONMENT=Development $REGISTRY/$REPOSITORY:$IMAGE_TAG
+              sudo docker run -d --name $CONTAINER_NAME -p 8080:8080 -e ASPNETCORE_ENVIRONMENT=Development -e Authentication__JwtSecret=${{ secrets.JWT_SECRET }} -e Supabase__Key=${{ secrets.SUPABASE_KEY }} $REGISTRY/$REPOSITORY:$IMAGE_TAG
